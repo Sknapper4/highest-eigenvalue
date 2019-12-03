@@ -51,6 +51,6 @@ Also
 </pre>
 
 ## Conclusion
-Thus we have shown that the highest Eigenvalue of matrix M is 12 and 
+Thus we have shown that the highest Eigenvalue of matrix `M`is 12 and 
 we have supplied a basis for the corresponding Eigenspace. We have also proven
-that the basis we found is in fact an Eigenvector of M.
+that the basis we found is in fact an Eigenvector of `M`.
