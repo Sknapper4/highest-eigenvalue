@@ -53,7 +53,6 @@ def check(test_eigenvector: Vector, matrix: Matrix, high_eigenvalue: int) -> boo
         if val * high_eigenvalue != checked_vector[i]:
             is_eigenvector = False
             break
-    print(checked_vector)
     return is_eigenvector
 
 
