@@ -54,3 +54,11 @@ Also
 Thus we have shown that the highest Eigenvalue of matrix `M`is 12 and 
 we have supplied a basis for the corresponding Eigenspace. We have also proven
 that the basis we found is in fact an Eigenvector of `M`.
+
+
+#### Run the Code
+To run this code
+1. Ensure you have python3.7 installed on your machine.
+    * A virtual environment is ideal but not necessarily required.
+2. Run `pip install -r requirements.txt`
+3. Run `python3.7 find_highest_eigenvalue.py`
