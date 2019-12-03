@@ -34,7 +34,7 @@ def power_method(matrix: Matrix, num_iterations: int) -> Tuple:
     return v_0, v_1_norm
 
 
-def check(test_eigenvector: Vector, matrix: Matrix) -> Vector:
+def check(test_eigenvector: Vector, matrix: Matrix, high_eigenvalue: int) -> bool:
     """
         This function checks to make sure that the eigenvector we calculated
         is correct.
@@ -43,26 +43,27 @@ def check(test_eigenvector: Vector, matrix: Matrix) -> Vector:
     :return:
     """
     checked_vector: Vector = []
+    is_eigenvector = True
     for row in matrix:
         new_val = 0
         for index, val in enumerate(test_eigenvector):
             new_val = new_val + row[index] * val
         checked_vector.append(new_val)
-    return checked_vector
-
-
-def get_eigens(matrix: Matrix) -> Tuple:
-    return np.linalg.eig(M)
+    for i, val in enumerate(test_eigenvector):
+        if val * high_eigenvalue != checked_vector[i]:
+            is_eigenvector = False
+            break
+    print(checked_vector)
+    return is_eigenvector
 
 
 if __name__ == '__main__':
-    highest_eigenvector, highest_eigenvalue = power_method(M, 1000)
-    checked = check(highest_eigenvector, M)
-    eigens = get_eigens(M)
-    eigenvalues = eigens[0]
-    eigenvectors = eigens[1]
-    print(f'Highest eigenvalue is {highest_eigenvalue} \n'
-          f'and the corresponding eigenvector is \n'
-          f'{highest_eigenvector}')
-    print(check(highest_eigenvector, M))
-
+    highest_eigenvector_basis, highest_eigenvalue = power_method(M, 1000)
+    checked = check(highest_eigenvector_basis, M, highest_eigenvalue)
+    if checked:
+        print(f'Highest eigenvalue is {highest_eigenvalue} \n'
+              f'and the basis eigenvector for the eigenspace is \n'
+              f'{highest_eigenvector_basis}')
+    else:
+        print(f'We failed to find the highest eigenvalue and its \n'
+              f'corresponding basis of the eigenspace')

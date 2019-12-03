@@ -28,3 +28,29 @@ parameters, and what that function returns.
     * Last in the iteration process, we recalculate `v_0` by dividing
       `v_1` by `v_1_norm`, this will eventually give a basis
       for the Eigenspace
+3. We then return `v_0` and `v_1_norm` and continue on to check that 
+    our Eigenvector is correct
+4. We check that our Eigenvector is correct by multiplying the matrix and the
+    vector together and checking that the vector produced by that is a multiple 
+    of our Eigenvalue.
+
+## Our Results
+As you saw above, the matrix M is the input and for output we got
+<pre>
+Highest eigenvalue is 12.0 and the 
+basis eigenvector for the eigenspace is 
+V = [ 0.40824829 -0.40824829  0.81649658]
+</pre>
+The product of this vector and our matrix is 
+<pre>
+M * V = [4.898979485566356, -4.898979485566356, 9.797958971132713]
+</pre>
+Also
+<pre>
+12.0 * V = [4.898979485566356, -4.898979485566356, 9.797958971132713]
+</pre>
+
+## Conclusion
+Thus we have shown that the highest Eigenvalue of matrix M is 12 and 
+we have supplied a basis for the corresponding Eigenspace. We have also proven
+that the basis we found is in fact an Eigenvector of M.
